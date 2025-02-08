@@ -17,20 +17,19 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo $PWD
       
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          mkdir /www
-          chmod -R 777 /www
-          wget -P /www https://github.com/ollama/ollama/releases/download/v0.5.7/ollama-windows-amd64.zip
-          wget -P /www https://github.com/ollama/ollama/releases/download/v0.5.7/OllamaSetup.exe
-          cd /www
+          mkdir www
+          #chmod -R 777 /www
+          #wget -P /www https://github.com/ollama/ollama/releases/download/v0.5.7/ollama-windows-amd64.zip
+          #wget -P /www https://github.com/ollama/ollama/releases/download/v0.5.7/OllamaSetup.exe
+          #cd /www
           ll
       
       # use scp
       - name: view home dictionary in next step
         run: |
-          cd /www
           ll
