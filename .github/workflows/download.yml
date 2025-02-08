@@ -29,8 +29,12 @@ jobs:
           cd $PWD/www
           ls
       
-      # use scp
-      - name: view home dictionary in next step
-        run: |
-          cd $PWD/www
-          ls
+      - name: via scp transfer file
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.MY_HOST }}
+          port: ${{ secrets.MY_PORT }}
+          username: ${{ secrets.MY_USERNAME }}
+          password: ${{ secrets.MY_MIMA }}
+          source: www/*
+          target: /data/nfs/web/dl/tmp
