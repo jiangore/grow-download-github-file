@@ -26,10 +26,7 @@ jobs:
           chmod -R 777 $PWD/www
           while IFS= read -r url
           do
-            #wget "$url"
-            echo "$url"
-            echo "11"
-            echo $url
+            wget -P $PWD/www $url
           done < urls.txt
           cd $PWD/www
           ls
