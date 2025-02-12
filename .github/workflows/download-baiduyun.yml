@@ -28,8 +28,13 @@ jobs:
           do
             wget -P $PWD/www $url
           done < urls.txt
-          cd $PWD/www
+          #cd $PWD/www
           ls
-        
-      
+          
+      - name: Upload to BaiduYun
+        run: |
+          chmod -R 777 $PWD/BaiduPCS-Go
+          $PWD/BaiduPCS-Go login -bduss=${{ secrets.BD_USS }} -stoken=${{ secrets.BD_TOKEN }}
+          $PWD/BaiduPCS-Go who
+          $PWD/BaiduPCS-Go quota
 
