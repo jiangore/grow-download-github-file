@@ -1,1 +1,31 @@
+name: Download Github File
 
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "dev" ]
+
+jobs:
+  download-job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: pull code repository
+        uses: actions/checkout@v4
+      
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo $PWD
+      
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          mkdir www
+          chmod -R 777 $PWD/www
+          wget -P $PWD/www https://github.com/ollama/ollama/releases/download/v0.5.7/ollama-windows-amd64.zip
+          wget -P $PWD/www https://github.com/ollama/ollama/releases/download/v0.5.7/OllamaSetup.exe
+          cd $PWD/www
+          ls
+      
