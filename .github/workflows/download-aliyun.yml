@@ -1,0 +1,32 @@
+name: Download AND Upload to AliYunPan
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+
+jobs:
+  download-job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: pull code repository
+        uses: actions/checkout@v4
+      
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo $PWD
+      
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          mkdir www
+          chmod -R 777 $PWD/www
+          while IFS= read -r url
+          do
+            wget -P $PWD/www $url
+          done < urls.txt
+          #cd $PWD/www
+          ls
