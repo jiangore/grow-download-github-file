@@ -24,11 +24,11 @@ jobs:
         run: |
           mkdir www
           chmod -R 777 $PWD/www
-          cd $PWD/www
           while IFS= read -r url
           do
             #wget "$url"
             echo "$url"
           done < urls.txt
+          cd $PWD/www
           ls
       
