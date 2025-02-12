@@ -28,6 +28,8 @@ jobs:
           do
             #wget "$url"
             echo "$url"
+            echo "11"
+            echo $url
           done < urls.txt
           cd $PWD/www
           ls
