@@ -37,4 +37,7 @@ jobs:
           $PWD/BaiduPCS-Go login -bduss=${{ secrets.BD_USS }} -stoken=${{ secrets.BD_TOKEN }}
           $PWD/BaiduPCS-Go who
           $PWD/BaiduPCS-Go quota
+          $PWD/BaiduPCS-Go cd /
+          $PWD/BaiduPCS-Go pwd
+          $PWD/BaiduPCS-Go upload $PWD/www /download
 
